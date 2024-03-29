@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+.navbar{
+    background-color: #7209b7;
+}
+
+.navbar-brand {
+    font-family: 'Roboto', sans-serif; 
+}
+
+.card {
+    font-family: 'Roboto', sans-serif; 
+}

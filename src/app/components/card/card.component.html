@@ -1,0 +1,85 @@
+<!--Add Button-->
+<div class="table-title m-2">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" 
+            data-bs-target="#exampleModal" style="margin-left: 5%;" (click)="newCard()">
+        <i class="fa fa-save"></i> Add+
+    </button>
+</div>
+
+<!--Table-->
+<table class="table-fill mt-2">
+    <thead>
+        <tr>
+            <th class="text-left">ID</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">Number</th>
+                <th class="text-left">Type</th>
+                <th class="text-left">CVV</th>
+                <th class="text-left">Actions</th>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <tr *ngFor="let item of listCards">
+            <td class="text-center">{{item.id_card}}</td>
+            <td class="text-center">{{item.name}}</td>
+            <td class="text-center">{{item.number}}</td>
+            <td class="text-center">{{item.type}}</td>
+            <td class="text-center">{{item.cvv}}</td>
+            <td class="text-center actions">
+                <button type="button" class="btn btn-warning buttoncard"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button type="button" class="btn btn-danger buttoncard" (click)="delete(item.id_card)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--Modal Form-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 *ngIf="!isUpdate" class="modal-title" id="exampleModalLabel">New Card</h5>
+          <h5 *ngIf="isUpdate" class="modal-title" id="exampleModalLabel">Update Card</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formCard" method="post">
+                <legend>
+                    <span class="number"></span> New card details
+                </legend>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Number:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="number">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Type:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="type">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">CVV:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="cvv">
+                    </div>
+                </div>
+                <button *ngIf="!isUpdate" class="buttonform" type="submit" (click)="save()">Save</button>
+                <button *ngIf="isUpdate" class="buttonform" type="submit" (click)="update()">Update</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
