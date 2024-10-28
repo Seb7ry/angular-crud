@@ -43,12 +43,12 @@ jobs:
         with:
           name: project-client-artifact
           path: ./dist  
-      
+
       - name: List contents of downloaded artifact
         run: ls -R ./dist
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/project-client/browser
+          publish_dir: ./dist/browser
