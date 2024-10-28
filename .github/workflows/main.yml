@@ -43,6 +43,9 @@ jobs:
         with:
           name: project-client-artifact
           path: ./dist  
+      
+      - name: List contents of downloaded artifact
+        run: ls -R ./dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
