@@ -53,7 +53,8 @@
                   "maximumError": "20kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/angular-crud/"
             },
             "development": {
               "optimization": false,
