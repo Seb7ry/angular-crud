@@ -39,10 +39,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: project-client-artifact
-          path: ./dist  # Directorio donde se descargará el artifact
+          path: ./dist  
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/project-client/browser/index.html
+          publish_dir: ./dist/project-client/browser
